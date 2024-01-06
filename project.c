@@ -19,14 +19,16 @@ struct emp
 		int attendance;
 	};
 int welcome_screen(void);
+int password_screen(void);
 void add_record(FILE *fp);
 void view_record(FILE *fp);
 void menu_screen(FILE *fp);
 void gotoxy(int x,int y);
 int main() 
 {
-    int login;
+    int login,password;
     login=welcome_screen();
+    password=password_screen();
 	FILE *fp,*ft;
 	char another,choice;
 	
@@ -82,7 +84,7 @@ void menu_screen(FILE *fp)
         printf("0-EXIT");
         fflush(stdin);
         gotoxy(90,40);
-        printf("\nEnter your choice: ");
+        printf("\n\n \t\t\t \t\t\t\t\t\t\t\t Enter your choice: ");
         choice = getche();
         switch (choice)
         {
@@ -197,6 +199,60 @@ int welcome_screen(void)
     }
     else
     exit(0);
+}
+int password_screen(void)
+{
+	system("cls");
+	gotoxy(80,15);
+	char password[10]="employee";
+	char password1[10];
+	char key[15]="thisisakey??";
+	char key1[15];
+	char new;
+	printf("\n \t\t\t \t\t\t\t\t\t\t Enter the 8 digit password to enter:");
+	scanf("%s",password1);
+	if(strcmp(password,password1)==0)
+	{
+		return 1;
+	}
+	else
+	{
+		while (strcmp(password,password1)!=0)
+		{
+		printf("\n \t\t\t \t\t\t\t\t\t\t Wrong password");
+		printf("\n \t\t\t \t\t\t\t\t\t\t Forgot your password? Enter F/f to enter the key:");
+		printf("\n \t\t\t \t\t\t\t\t\t\t To re-enter the password press r/R:");
+		new=getche();
+		switch(new)
+		{
+			case 'r':
+			case 'R':
+					printf("\n \t\t\t \t\t\t\t\t\t\t Enter the 8 digit password to enter:");
+					scanf("%s",password1);
+                    if(strcmp(password,password1)!=0)
+                    {
+                        printf("\n \t\t\t \t\t\t\t\t\t\t Wrong password");
+                        password_screen();
+                    }
+					break;
+			case 'f':
+			case 'F':
+					printf("\n \t\t\t \t\t\t\t\t\t\t Enter the 12 digit key to change the password:");
+					scanf("%s",key1);
+					if(strcmp(key,key1)==0)
+					{
+						return 1;
+					}	
+					else
+					{
+						printf("\n \t\t\t \t\t\t\t\t\t\t Ask your administrator for the valid key");
+						exit(0);
+					}
+		}
+		return 1;	
+		}
+	}
+	
 }
 
 
