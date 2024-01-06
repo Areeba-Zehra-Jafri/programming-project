@@ -10,7 +10,7 @@ struct emp
 		char name[30];
 		char gender;
 		int age;
-		float salary;
+		int salary;
 		char designation[20];
 		char address[100];
 		char martial_status;
@@ -23,21 +23,29 @@ int password_screen(void);
 void add_record(FILE *fp);
 void view_record(FILE *fp);
 void menu_screen(FILE *fp);
+void edit_record(FILE *fp);
+void delete_record(FILE *fp);
+void search_record(FILE *fp);
 void gotoxy(int x,int y);
+void salary(void);
+
 int main() 
 {
     int login,password;
     login=welcome_screen();
     password=password_screen();
+
 	FILE *fp,*ft;
 	char another,choice;
-	
+
 	struct emp e;
 	char id;
-	fp = fopen("EMPLOYEE.DAT", "rb+");
+	size_t recsize = sizeof(struct emp);
+
+	fp = fopen("EMPLOYEE1.DAT", "rb+");
 	if (fp == NULL)
 	{
-		fp = fopen("EMPLOYEE.DAT", "wb+");
+		fp = fopen("EMPLOYEE1.DAT", "wb+");
 		if (fp == NULL)
 		{
     	printf("can not open file");
@@ -84,7 +92,7 @@ void menu_screen(FILE *fp)
         printf("0-EXIT");
         fflush(stdin);
         gotoxy(90,40);
-        printf("\n\n \t\t\t \t\t\t\t\t\t\t\t Enter your choice: ");
+        printf("\nEnter your choice: ");
         choice = getche();
         switch (choice)
         {
@@ -95,19 +103,19 @@ void menu_screen(FILE *fp)
             add_record(fp);
             break;
         case '3' :
-        	//edit_record();
+        	edit_record(fp);
         	break;
         case '4' :
-        	//delete_record();
+        	delete_record(fp);
         	break;
         case '5' :
-        	//edit_record();
+        	search_record(fp);
         	break;	
         case '6' :
         	//edit_record();
         	break;	
         case '7' :
-        	//edit_record();	        	
+        	salary();	        	
         	break;
         case '8' :
         	//edit_record();
@@ -132,7 +140,7 @@ void view_record(FILE *fp)
         printf("Name: %s\n", e.name);
         printf("Gender: %c\n", e.gender);
         printf("Age: %d\n", e.age);
-        printf("Salary: %f\n", e.salary);
+        printf("Salary: %d\n", e.salary);
         printf("Designation: %s\n", e.designation);
         printf("Address: %s\n", e.address);
         printf("Marital Status: %c\n", e.martial_status);
@@ -161,7 +169,7 @@ void add_record(FILE *fp)
 		printf("\nEnter the age: ");
 		scanf("%d",&e.age);	
 		printf("\nEnter the salary: ");
-		scanf("%f",&e.salary);
+		scanf("%d",&e.salary);
 		printf("\nEnter the designation: ");
 		scanf("%s",&e.designation);
 		printf("\nEnter the address: ");
@@ -179,7 +187,7 @@ void add_record(FILE *fp)
 		fflush(stdin);
 		another=getchar();	
 	}
-		
+
 }
 int welcome_screen(void)
 {
@@ -199,6 +207,10 @@ int welcome_screen(void)
     }
     else
     exit(0);
+}
+void clearBuffer() {
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF);
 }
 int password_screen(void)
 {
@@ -252,7 +264,231 @@ int password_screen(void)
 		return 1;	
 		}
 	}
-	
+
 }
 
+void edit_record(FILE *fp)
+ {
+    system("cls");
+    struct emp e;
+    char another = 'y';
+    int emp_id, op;
 
+    while (another == 'y') {
+        printf("Enter employee id to modify:\n");
+        scanf("%d", &emp_id);
+        rewind(fp);
+
+       // while (fread(&e, sizeof(struct emp), 1, fp) == 1) {
+		
+        while (fread(&e, sizeof(struct emp), 1, fp) == 1) {
+            if (emp_id == e.ID) {
+                printf("What do you want to edit:\n");
+                printf("1.ID\n2.Name\n3.Gender\n4.Age\n5.Salary\n6.Designation\n7.Address\n8.Marital Status\n9.Date of Birth\n10.CNIC\n11.Attendance\n");
+                scanf("%d", &op);
+
+                switch (op) {
+                    case 1:
+                        printf("Enter new ID: ");
+                        scanf("%d", &e.ID);
+                        break;
+                    case 2:
+                        printf("Enter new name: ");
+                        clearBuffer();  // Clear input buffer before fgets
+                       // fgets(e.name, sizeof(e.name), stdin);
+					   scanf("%s",&e.name);
+                        break;
+                    case 3:
+                        printf("Enter new gender: ");
+                        clearBuffer();  // Clear input buffer before fgets
+                        //fgets(e.gender, sizeof(e.gender), stdin);
+                        scanf("%c",&e.gender);
+						break;
+                    case 4:
+                        printf("Enter new age: ");
+                        clearBuffer();  // Clear input buffer before fgets
+                        scanf("%d",&e.age);
+                        break;
+                    case 5:
+                        printf("Enter new salary: ");
+                        clearBuffer();  // Clear input buffer before fgets
+                        scanf("%d",&e.salary);
+                        break;
+                    case 6:
+                        printf("Enter new designation: ");
+                        clearBuffer();  // Clear input buffer before fgets
+                        //fgets(e.designation, sizeof(e.designation), stdin);
+                        scanf("%s",&e.designation);
+						break;
+                    case 7:
+                        printf("Enter new address: ");
+                        clearBuffer();  // Clear input buffer before fgets
+                        //fgets(e.designation, sizeof(e.designation), stdin);
+                        scanf("%s",&e.address);
+						break;
+                    case 8:
+                        printf("Enter new martial status: ");
+                        clearBuffer();  // Clear input buffer before fgets
+                       // fgets(e.martial_status, sizeof(e.martial_status), stdin);
+                        scanf("%c",&e.martial_status);
+						break;
+                    case 9:
+					 	printf("Enter new Date of birth: ");
+                        clearBuffer();  // Clear input buffer before fgets
+                        //fgets(e.d_o_b, sizeof(e.d_o_b), stdin);
+                        scanf("%s",&e.d_o_b);
+						break;
+                    case 10:
+						printf("Enter new CNIC No: ");
+                        clearBuffer();  // Clear input buffer before fgets
+                        //fgets(e.CNIC_NO, sizeof(e.CNIC_NO), stdin);
+                        scanf("%s",&e.CNIC_NO);
+						break;
+                    case 11:
+                        printf("Enter new attendance: ");
+                        clearBuffer();  // Clear input buffer before fgets
+						scanf("%d", &e.attendance);
+                        //fgets(e.attendance, sizeof(e.attendance), stdin);
+                        break;
+
+                }
+
+                fseek(fp, -sizeof(struct emp), SEEK_CUR);
+                fwrite(&e, sizeof(struct emp), 1, fp);
+                break;  // Exit the loop after modifying the record
+            }
+        }
+
+        printf("Do you want to edit another record(y/n):\n");
+        clearBuffer();  // Clear input buffer before getche
+        another = getche();
+    }
+}
+void delete_record(FILE *fp) {
+    struct emp e;
+    FILE *ft;
+    system("cls");
+    char another = 'y';
+    int emp_id;
+
+    while (another == 'y') {
+        printf("Enter employee id to delete record:\n");
+        scanf("%d", &emp_id);
+        clearBuffer();  // Clear input buffer before getche
+
+        ft = fopen("temp.DAT", "wb");
+        rewind(fp);
+
+        while (fread(&e, sizeof(struct emp), 1, fp) == 1) {
+            if (emp_id != e.ID) {
+                fwrite(&e, sizeof(struct emp), 1, ft);
+            }
+        }
+
+        fclose(fp);
+        fclose(ft);
+
+        remove("EMPLOYEE1.DAT");
+        rename("temp.DAT", "EMPLOYEE1.DAT");
+        fp = fopen("EMPLOYEE1.DAT", "rb+");  // Reopen the file here
+
+        printf("Delete another record(y/n): ");
+        clearBuffer();  // Clear input buffer before getche
+        another = getche();
+    }
+}
+void search_record(FILE *fp)
+{
+    struct emp e;
+    int n;
+    system("cls");
+    rewind(fp);
+    char another = 'y';
+
+    while (another == 'y')
+    {
+        printf("SEARCH RECORD\n");
+        printf("Enter ID_NO of the employee you want to search: ");
+        fflush(stdin);
+        scanf("%d", &n);
+
+        fp = fopen("EMPLOYEE1.DAT", "rb");  // Corrected file opening mode
+
+        if (fp == NULL)
+        {
+            printf("Unable to open the file.\n");
+            exit(1);
+        }
+
+        int found = 0;
+
+        while (fread(&e, sizeof(struct emp), 1, fp) == 1)
+        {
+            if (n == e.ID)
+            {
+                printf("ID: %d\n", e.ID);
+                printf("Name: %s\n", e.name);
+                printf("Gender: %c\n", e.gender);
+                printf("Age: %d\n", e.age);
+                printf("Salary: %d\n", e.salary);  // Corrected format specifier
+                printf("Designation: %s\n", e.designation);
+                printf("Address: %s\n", e.address);
+                printf("Marital Status: %c\n", e.martial_status);
+                printf("Date of Birth: %s\n", e.d_o_b);
+                printf("CNIC No.: %s\n", e.CNIC_NO);
+                printf("Attendance: %d\n", e.attendance);
+                printf("------------------------\n");
+
+                found = 1;
+                break;
+            }
+        }
+
+        fclose(fp);
+
+        if (!found)
+        {
+            printf("Record not found.\n");
+        }
+
+        printf("Do you want to search another record? (y/n): ");
+        fflush(stdin);
+        another = getchar();
+    }
+}
+void salary(void)
+{
+    system("cls");
+	char ch;
+    float basic_salary;
+    float total_salary;
+    float allowances;
+    int hours_worked;
+
+    printf("\nEnter employee basic salary: ");
+    scanf("%f", &basic_salary);
+
+    printf("\nEnter employee allowances: ");
+    scanf("%f", &allowances);
+
+    printf("\nEnter hours worked by the employee: ");
+    scanf("%d", &hours_worked);
+
+    const float TAX_RATE = 0.1;
+    const float OVERTIME_PAY_RATE = 1.5;
+    float hourlyRate = basic_salary / 160; // Assuming 160 hours in a month (40 hours per week for 4 weeks)
+    float regularPay = hours_worked <= 160 ? hours_worked * hourlyRate : 160 * hourlyRate;
+    float overtimePay = hours_worked > 160 ? (hours_worked - 160) * OVERTIME_PAY_RATE * hourlyRate : 0;
+
+    float totalSalary = regularPay + overtimePay + allowances;
+    float taxAmount = totalSalary * TAX_RATE;
+
+    total_salary=totalSalary - taxAmount;
+    printf("\nTotal Salary (after tax): %.2f\n", total_salary);
+    printf("\nDo you want to calculate the salary of another employee(y\n): ");
+    ch=getche();
+    if(ch=='y'||ch=='Y')
+	salary();
+	else
+    return 0;
+}
