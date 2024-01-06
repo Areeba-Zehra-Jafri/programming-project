@@ -3,6 +3,7 @@
 #include<string.h>
 #include<windows.h>
 #include<stdlib.h>
+COORD coord={0,0};
 struct emp
 	{
 		int ID;
@@ -17,11 +18,15 @@ struct emp
 		char CNIC_NO[15];
 		int attendance;
 	};
+int welcome_screen(void);
 void add_record(FILE *fp);
 void view_record(FILE *fp);
 void menu_screen(FILE *fp);
+void gotoxy(int x,int y);
 int main() 
 {
+    int login;
+    login=welcome_screen();
 	FILE *fp,*ft;
 	char another,choice;
 	
@@ -41,23 +46,42 @@ int main()
 	fclose(fp);
 	return 0;
 }
-
+void gotoxy(int x,int y)
+{
+	coord.X=x;
+	coord.Y=y;
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE),coord);
+}
 void menu_screen(FILE *fp)
 {
     char another, choice;
     while (1)
     {
         system("cls\n");
+        gotoxy(90,15);
+        printf(" MAIN MENU");
+        gotoxy(90,20);
         printf("1-VIEW RECORD\n");
+        gotoxy(90,22);
         printf("2-ADD RECORD\n");
+        gotoxy(90,24);
         printf("3-EDIT RECORD\n");
+        gotoxy(90,26);
         printf("4-DELETE RECORD\n");
-        printf("5-ATTENDANCE\n");
-        printf("6-SALARY\n");
-        printf("7-NOTIFICATIONS\n");
-        printf("8-ABOUT\n");
-        printf("9-EXIT");
+        gotoxy(90,28);
+        printf("5-SEARCH RECORD\n");
+        gotoxy(90,30);
+        printf("6-ATTENDANCE\n");
+        gotoxy(90,32);
+        printf("7-SALARY\n");
+        gotoxy(90,34);
+        printf("8-NOTIFICATIONS\n");
+        gotoxy(90,36);
+        printf("9-ABOUT\n");
+        gotoxy(90,38);
+        printf("0-EXIT");
         fflush(stdin);
+        gotoxy(90,40);
         printf("\nEnter your choice: ");
         choice = getche();
         switch (choice)
@@ -86,7 +110,10 @@ void menu_screen(FILE *fp)
         case '8' :
         	//edit_record();
         	break;
-        case '9':
+        case '9' :
+        	//edit_record();
+        	break;
+        case '0':
             exit(0);
             break;
         }
@@ -152,6 +179,24 @@ void add_record(FILE *fp)
 	}
 		
 }
-
+int welcome_screen(void)
+{
+    char login;
+	system("cls");
+	gotoxy(80,18);
+	printf("________________________________________");
+	gotoxy(88,20);
+	printf("EMPLOYEE MANAGEMENT SYSTEM");
+	gotoxy(80,22);
+	printf("________________________________________");	
+    printf("\n\n \t\t\t \t\t\t\t\t\t\t Enter L/l to login and any key to exit:");
+    login=getche();
+    if(login=='L'||login=='l')
+    {
+        return 1;
+    }
+    else
+    exit(0);
+}
 
 
