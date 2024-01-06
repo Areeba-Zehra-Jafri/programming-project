@@ -23,6 +23,7 @@ int password_screen(void);
 void add_record(FILE *fp);
 void view_record(FILE *fp);
 void menu_screen(FILE *fp);
+void salary(void);
 void gotoxy(int x,int y);
 int main() 
 {
@@ -107,7 +108,7 @@ void menu_screen(FILE *fp)
         	//edit_record();
         	break;	
         case '7' :
-        	//edit_record();	        	
+        	salary();	        	
         	break;
         case '8' :
         	//edit_record();
@@ -186,11 +187,11 @@ int welcome_screen(void)
     char login;
 	system("cls");
 	gotoxy(80,18);
-	printf("________________________________________");
+	printf("______________");
 	gotoxy(88,20);
 	printf("EMPLOYEE MANAGEMENT SYSTEM");
 	gotoxy(80,22);
-	printf("________________________________________");	
+	printf("______________");	
     printf("\n\n \t\t\t \t\t\t\t\t\t\t Enter L/l to login and any key to exit:");
     login=getche();
     if(login=='L'||login=='l')
@@ -254,5 +255,39 @@ int password_screen(void)
 	}
 	
 }
+void salary(void)
+{
+    system("cls");
+	char ch;
+    float basic_salary;
+    float total_salary;
+    float allowances;
+    int hours_worked;
 
+    printf("\nEnter employee basic salary: ");
+    scanf("%f", &basic_salary);
 
+    printf("\nEnter employee allowances: ");
+    scanf("%f", &allowances);
+
+    printf("\nEnter hours worked by the employee: ");
+    scanf("%d", &hours_worked);
+
+    const float TAX_RATE = 0.1;
+    const float OVERTIME_PAY_RATE = 1.5;
+    float hourlyRate = basic_salary / 160; // Assuming 160 hours in a month (40 hours per week for 4 weeks)
+    float regularPay = hours_worked <= 160 ? hours_worked * hourlyRate : 160 * hourlyRate;
+    float overtimePay = hours_worked > 160 ? (hours_worked - 160) * OVERTIME_PAY_RATE * hourlyRate : 0;
+
+    float totalSalary = regularPay + overtimePay + allowances;
+    float taxAmount = totalSalary * TAX_RATE;
+
+    total_salary=totalSalary - taxAmount;
+    printf("\nTotal Salary (after tax): %.2f\n", total_salary);
+    printf("\nDo you want to calculate the salary of another employee: ");
+    ch=getche();
+    if(ch=='y'||ch=='Y')
+	salary();
+	else
+    return 0;
+}
