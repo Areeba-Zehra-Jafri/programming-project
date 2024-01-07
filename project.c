@@ -14,7 +14,7 @@ struct emp
 		char name[30];
 		char gender;
 		int age;
-		float salary;
+		int salary;
 		char designation[20];
 		char address[100];
 		char martial_status;
@@ -47,6 +47,7 @@ int main()
     int login,password;
     login=welcome_screen();
     password=password_screen();
+
 	FILE *fp,*ft;
 	char another,choice;
 
@@ -54,7 +55,7 @@ int main()
 	fp = fopen("EMPLOYEE.DAT", "rb+");
 	if (fp == NULL)
 	{
-		fp = fopen("EMPLOYEE.DAT", "wb+");
+		fp = fopen("EMPLOYEE1.DAT", "wb+");
 		if (fp == NULL)
 		{
     	printf("can not open file");
@@ -151,7 +152,7 @@ void view_record(FILE *fp)
         printf("Name: %s\n", e.name);
         printf("Gender: %c\n", e.gender);
         printf("Age: %d\n", e.age);
-        printf("Salary: %f\n", e.salary);
+        printf("Salary: %d\n", e.salary);
         printf("Designation: %s\n", e.designation);
         printf("Address: %s\n", e.address);
         printf("Marital Status: %c\n", e.martial_status);
@@ -180,7 +181,7 @@ void add_record(FILE *fp)
 		printf("\nEnter the age: ");
 		scanf("%d",&e.age);	
 		printf("\nEnter the salary: ");
-		scanf("%f",&e.salary);
+		scanf("%d",&e.salary);
 		printf("\nEnter the designation: ");
 		scanf("%s",&e.designation);
 		printf("\nEnter the address: ");
@@ -198,18 +199,18 @@ void add_record(FILE *fp)
 		fflush(stdin);
 		another=getchar();	
 	}
-		
+
 }
 int welcome_screen(void)
 {
     char login;
 	system("cls");
 	gotoxy(80,18);
-	printf("________________________________________");
+	printf("______________");
 	gotoxy(88,20);
 	printf("%s%sEMPLOYEE MANAGEMENT SYSTEM%s",ANSI_COLOR_BLUE,ANSI_COLOR_BOLD,ANSI_COLOR_RESET);
 	gotoxy(80,22);
-	printf("________________________________________");	
+	printf("______________");	
     printf("\n\n \t\t\t \t\t\t\t\t\t\t Enter L/l to login and any key to exit:");
     login=getche();
     if(login=='L'||login=='l')
@@ -218,6 +219,10 @@ int welcome_screen(void)
     }
     else
     exit(0);
+}
+void clearBuffer() {
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF);
 }
 int password_screen(void)
 {
@@ -271,7 +276,7 @@ int password_screen(void)
 		return 1;	
 		}
 	}
-	
+
 }
 void salary(void)
 {
