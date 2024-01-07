@@ -1,0 +1,17 @@
+void about (void){
+   FILE* ptr;
+char text;
+ptr=fopen("about.txt","r");
+if (ptr == NULL){
+    printf("file is empty");
+}
+printf("\t\t\t\t***ITS ALL ABOUT US OUR COMPANY*\t\t\t\n");
+    while ((text = fgetc(ptr)) != EOF) {
+        printf("%c", text);
+    }
+fclose(ptr);
+
+     
+
+    return 0;
+}

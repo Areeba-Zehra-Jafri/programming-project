@@ -18,12 +18,18 @@ struct emp
 		char CNIC_NO[15];
 		int attendance;
 	};
+int getche(void);
 int welcome_screen(void);
 int password_screen(void);
+int notification(void);
+void salary(void);
+void about(void);
 void add_record(FILE *fp);
 void view_record(FILE *fp);
 void menu_screen(FILE *fp);
-void salary(void);
+void search_record(FILE *fp);
+void delete_record(FILE *fp);
+void edit_record(FILE *fp);
 void gotoxy(int x,int y);
 int main() 
 {
@@ -34,7 +40,6 @@ int main()
 	char another,choice;
 	
 	struct emp e;
-	char id;
 	fp = fopen("EMPLOYEE.DAT", "rb+");
 	if (fp == NULL)
 	{
@@ -96,13 +101,13 @@ void menu_screen(FILE *fp)
             add_record(fp);
             break;
         case '3' :
-        	//edit_record();
+        	edit_record(fp);
         	break;
         case '4' :
-        	//delete_record();
+        	delete_record(fp);
         	break;
         case '5' :
-        	//edit_record();
+        	search_record(fp);
         	break;	
         case '6' :
         	//edit_record();
@@ -111,10 +116,10 @@ void menu_screen(FILE *fp)
         	salary();	        	
         	break;
         case '8' :
-        	//edit_record();
+        	notification();
         	break;
         case '9' :
-        	//edit_record();
+        	about();
         	break;
         case '0':
             exit(0);
@@ -288,6 +293,39 @@ void salary(void)
     ch=getche();
     if(ch=='y'||ch=='Y')
 	salary();
-	else
+}
+int notification(void) {
+    system("cls");
+    char options = 'y';
+
+    while (options == 'y') {
+        int numEmployees;
+
+    printf("\nEnter the number of employees of employees you want to send a notification seperately: ");
+    scanf("%d", &numEmployees);
+
+    Employee *employees = (Employee *)malloc(numEmployees * sizeof(Employee));
+
+    printf("\nEnter employee details:\n");
+    for (int i = 0; i < numEmployees; ++i) {
+        printf("\nEmployee %d ID: ", i + 1);
+        scanf("%d", &employees[i].empID);
+    }
+       // Simulating receiving notifications for all employees
+    for (int i = 0; i < numEmployees; ++i) {
+        printf("\nHR sending notification to Employee ID %d: ", employees[i].empID);
+        scanf(" %[^\n]s", employees[i].notification);
+    }
+
+    openFileWithOptions();
+
+    // Free allocated memory
+    free(employees);
+
+
+        printf("\nDo you want to continue (y/n): ");
+        scanf(" %c", &options);
+    }
+
     return 0;
 }

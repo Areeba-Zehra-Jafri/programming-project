@@ -1,0 +1,69 @@
+Notification 1: Shift Change Announcement
+Subject: Shift Schedule Change Notification
+
+Dear [Employee Name],
+
+We hope this message finds you well. This is to inform you of a change in your upcoming shift schedule. Your shift on [Date] from [Previous Shift Time] has been updated to [New Shift Time].
+
+We apologize for any inconvenience caused by this change. If you have any concerns or questions regarding this adjustment, please contact your supervisor or the HR department for clarification.
+
+Thank you for your understanding and cooperation.
+
+Best regards,
+CORE CODE
+
+
+Notification 2: Training Session Announcement
+Subject: Upcoming Training Session Invitation
+
+Dear [Employee Name],
+
+We are excited to announce an upcoming training session on [Topic]. This session is scheduled for [Date] from [Time] to [Time] at [Location/Online].
+
+The training will cover essential aspects of [Topic], enhancing our skills and knowledge in this area. Your participation is highly encouraged as this training will be beneficial to your professional development.
+
+Please confirm your attendance by [Confirmation Deadline] to ensure adequate arrangements. If you have any questions, feel free to reach out to the training coordinator.
+
+Thank you for your attention to this matter.
+
+Best regards,
+CORE CODE
+
+
+Notification 3: Policy Update
+Subject: Important Policy Update Notification
+
+Dear [Employee Name],
+
+We want to inform you about an important update to our company's [Policy Name]. Effective [Effective Date], there have been changes to [Specify Changes].
+
+It is imperative to review and familiarize yourself with these changes to ensure compliance with company policies and procedures. Access the updated policy document [Location/Link] for detailed information.
+
+If you have any queries or require further clarification regarding this update, please don't hesitate to contact HR or your immediate supervisor.
+
+Thank you for your attention to this matter.
+
+Sincerely,
+CORE CODE
+
+
+Notification 4: Employee Meeting Announcement
+Subject: Upcoming Employee Meeting
+
+Dear [Employee Name],
+
+We would like to inform you about an upcoming important meeting scheduled for [Date] at [Time]. The meeting will take place at [Location/Conference Room].
+
+Agenda:
+- Discussing [Meeting Agenda Topic 1]
+- Reviewing [Meeting Agenda Topic 2]
+- Planning for [Meeting Agenda Topic 3]
+
+Your presence and participation in this meeting are essential as we value your input and contributions. If you foresee any conflicts with this schedule, please notify your supervisor or HR at your earliest convenience.
+
+Should you have any questions regarding the meeting agenda or require further information, feel free to reach out to [Meeting Organizer's Name].
+
+We look forward to your active participation in this meeting.
+
+Best regards,
+CORE CODE

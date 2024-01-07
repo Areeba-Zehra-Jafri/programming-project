@@ -1,0 +1,103 @@
+#include<stdio.h>
+#include<conio.h>
+#include<stdlib.h>
+#include<string.h>
+#include<windows.h>
+
+// int main(){
+// FILE *filePointer;
+// char character;
+
+// //Open the file in read-only mode
+// filePointer = fopen("Notification.txt","r");
+
+// if (filePointer == NULL){
+// //Error Handling if the file couldn't be opened
+// printf("Unable to open the file.\n");
+// return 1;
+// }
+
+// //Read and Print the content of the file 
+// while ((character = fgetc((filePointer)) =! EOF)){
+// printf{"%c",character};
+// }
+
+// //close the file when done
+// fclose(filePointer);
+
+// return 0;
+
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+#include<conio.h>
+#include<stdio.h>
+#include<stdlib.h>
+
+void displayNotification(const char *message) {
+    printf("Notification: %s\n", message);
+}
+
+void receiveNotifications(int empID) {
+}
+
+void openFileWithOptions void() {
+    int option;
+    char Notificationtxt;
+    FILE *filePointer;
+
+    printf("\nChoose an option:");
+    printf("\n1. Open in read mode");
+    printf("\n2. Open in write mode (overwrite if exists)");
+
+    printf("\nEnter your choice: ");
+    scanf("%d", &option);
+
+    switch (option) {
+        case 1:
+            filePointer = fopen("Notification.txt", "r");
+            if (filePointer == NULL) {
+                printf("File not found or unable to open in read mode.\n");
+                exit(1);
+            }
+            printf("File opened in read mode.\n");
+            // Perform operations in read mode here (if required)
+            fclose(filePointer);
+            break;
+        case 2:
+            filePointer = fopen("Notification.txt", "w");
+            if (filePointer == NULL) {
+                printf("Unable to open in write mode.\n");
+                exit(1);
+            }
+            printf("File opened in write mode.\n");
+            // Perform operations in write mode here (if required)
+            fclose(filePointer);
+            break;
+        default:
+            printf("Invalid option. Please choose 1 or 2.\n");
+            break;
+    }
+}
+
+int main() {
+    int employeeID;
+    printf("Enter your employee ID: ");
+    scanf("%d", &employeeID);
+
+    receiveNotifications(employeeID);
+
+    openFileWithOptions();
+
+    return 0;
+}
