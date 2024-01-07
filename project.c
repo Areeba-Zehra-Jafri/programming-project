@@ -10,7 +10,7 @@ struct emp
 		char name[30];
 		char gender;
 		int age;
-		float salary;
+		int salary;
 		char designation[20];
 		char address[100];
 		char martial_status;
@@ -27,23 +27,25 @@ void about(void);
 void add_record(FILE *fp);
 void view_record(FILE *fp);
 void menu_screen(FILE *fp);
-void search_record(FILE *fp);
-void delete_record(FILE *fp);
-void edit_record(FILE *fp);
+void salary(void);
 void gotoxy(int x,int y);
+void salary(void);
+
 int main() 
 {
     int login,password;
     login=welcome_screen();
     password=password_screen();
+
 	FILE *fp,*ft;
 	char another,choice;
-	
+
 	struct emp e;
+	char id;
 	fp = fopen("EMPLOYEE.DAT", "rb+");
 	if (fp == NULL)
 	{
-		fp = fopen("EMPLOYEE.DAT", "wb+");
+		fp = fopen("EMPLOYEE1.DAT", "wb+");
 		if (fp == NULL)
 		{
     	printf("can not open file");
@@ -90,7 +92,7 @@ void menu_screen(FILE *fp)
         printf("0-EXIT");
         fflush(stdin);
         gotoxy(90,40);
-        printf("\n\n \t\t\t \t\t\t\t\t\t\t\t Enter your choice: ");
+        printf("\nEnter your choice: ");
         choice = getche();
         switch (choice)
         {
@@ -138,7 +140,7 @@ void view_record(FILE *fp)
         printf("Name: %s\n", e.name);
         printf("Gender: %c\n", e.gender);
         printf("Age: %d\n", e.age);
-        printf("Salary: %f\n", e.salary);
+        printf("Salary: %d\n", e.salary);
         printf("Designation: %s\n", e.designation);
         printf("Address: %s\n", e.address);
         printf("Marital Status: %c\n", e.martial_status);
@@ -167,7 +169,7 @@ void add_record(FILE *fp)
 		printf("\nEnter the age: ");
 		scanf("%d",&e.age);	
 		printf("\nEnter the salary: ");
-		scanf("%f",&e.salary);
+		scanf("%d",&e.salary);
 		printf("\nEnter the designation: ");
 		scanf("%s",&e.designation);
 		printf("\nEnter the address: ");
@@ -185,7 +187,7 @@ void add_record(FILE *fp)
 		fflush(stdin);
 		another=getchar();	
 	}
-		
+
 }
 int welcome_screen(void)
 {
@@ -205,6 +207,10 @@ int welcome_screen(void)
     }
     else
     exit(0);
+}
+void clearBuffer() {
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF);
 }
 int password_screen(void)
 {
@@ -258,7 +264,7 @@ int password_screen(void)
 		return 1;	
 		}
 	}
-	
+
 }
 void salary(void)
 {
@@ -293,39 +299,6 @@ void salary(void)
     ch=getche();
     if(ch=='y'||ch=='Y')
 	salary();
-}
-int notification(void) {
-    system("cls");
-    char options = 'y';
-
-    while (options == 'y') {
-        int numEmployees;
-
-    printf("\nEnter the number of employees of employees you want to send a notification seperately: ");
-    scanf("%d", &numEmployees);
-
-    Employee *employees = (Employee *)malloc(numEmployees * sizeof(Employee));
-
-    printf("\nEnter employee details:\n");
-    for (int i = 0; i < numEmployees; ++i) {
-        printf("\nEmployee %d ID: ", i + 1);
-        scanf("%d", &employees[i].empID);
-    }
-       // Simulating receiving notifications for all employees
-    for (int i = 0; i < numEmployees; ++i) {
-        printf("\nHR sending notification to Employee ID %d: ", employees[i].empID);
-        scanf(" %[^\n]s", employees[i].notification);
-    }
-
-    openFileWithOptions();
-
-    // Free allocated memory
-    free(employees);
-
-
-        printf("\nDo you want to continue (y/n): ");
-        scanf(" %c", &options);
-    }
-
+	else
     return 0;
 }
