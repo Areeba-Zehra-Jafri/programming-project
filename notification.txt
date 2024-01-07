@@ -1,0 +1,69 @@
+Notification 1: Shift Change Announcement
+Subject: Shift Schedule Change Notification
+
+Dear Aslam ,
+
+We hope this message finds you well. This is to inform you of a change in your upcoming shift schedule. Your shift on January 10th,2024 from 09:00 AM has been updated to January 10,2024 at 01:00 PM.
+
+We apologize for any inconvenience caused by this change. If you have any concerns or questions regarding this adjustment, please contact your supervisor or the HR department for clarification.
+
+Thank you for your understanding and cooperation.
+
+Best regards,
+CORE CODE
+
+
+Notification 2: Training Session Announcement
+Subject: Upcoming Training Session Invitation
+
+Dear Huda,
+
+We are excited to announce an upcoming training session on SALES TECHNIQUES. This session is scheduled for February 5th,2024 from 10:00 AM to 12:00 PM at Main Conference Room
+
+The training will cover essential aspects of Effective Sales strategies, enhancing our skills and knowledge in this area. Your participation is highly encouraged as this training will be beneficial to your professional development.
+
+Please confirm your attendance by January 28,2024 to ensure adequate arrangements. If you have any questions, feel free to reach out to the training coordinator.
+
+Thank you for your attention to this matter.
+
+Best regards,
+CORE CODE
+
+
+Notification 3: Policy Update
+Subject: Important Policy Update Notification
+
+Dear Kaif,
+
+We want to inform you about an important update to our company's Data Security Policy. Effective February 1st, 2024, there have been changes to data handling and confidentiality measures.
+
+It is imperative to review and familiarize yourself with these changes to ensure compliance with company policies and procedures. Access the updated policy document for detailed information.
+
+If you have any queries or require further clarification regarding this update, please don't hesitate to contact HR or your immediate supervisor.
+
+Thank you for your attention to this matter.
+
+Sincerely,
+CORE CODE
+
+
+Notification 4: Employee Meeting Announcement
+Subject: Upcoming Employee Meeting
+
+Dear Wabiha,
+
+We would like to inform you about an upcoming important meeting scheduled for January 20th,2024 at 10:00 AM. The meeting will take place at Conference Room A.
+
+Agenda:
+- Discussing Quarterly Performance Review
+- Reviewing Budget Allocation for Q1
+- Planning for Marketing Strategy Update
+
+Your presence and participation in this meeting are essential as we value your input and contributions. If you foresee any conflicts with this schedule, please notify your supervisor or HR at your earliest convenience.
+
+Should you have any questions regarding the meeting agenda or require further information, feel free to reach out to Sara Ali.
+
+We look forward to your active participation in this meeting.
+
+Best regards,
+CORE CODE
