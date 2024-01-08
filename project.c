@@ -479,11 +479,12 @@ void search_record(FILE *fp)
                 break;
             }
         }
+          if (!found)
+            {
+                printf("%sRecord not found.%s\n",ANSI_COLOR_RED,ANSI_COLOR_RESET);
+            }
         fclose(fp);
-        if (!found)
-        {
-            printf("%SRecord not found.%s\n",ANSI_COLOR_RED,ANSI_COLOR_RESET);
-        }
+       
         printf("Do you want to search another record? (y/n): ");
         fflush(stdin);
         another = getchar();
