@@ -340,7 +340,7 @@ void edit_record(FILE *fp) {
                     case 2:
                         printf("Enter new name: ");
                         fflush(stdin);
-                        // Clear input buffer before fgets
+                        // Clear input buffer 
                         scanf("%s",&e.name);
                         break;
                     case 3:
