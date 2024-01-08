@@ -603,7 +603,7 @@ void attendance(FILE *fp) {
     char ch;
     int empID;
     int total_days;
-    printf("Enter employee ID to calculate salary: ");
+    printf("Enter employee ID to calculate attendance percentage and salary using attendance: ");
     scanf("%d", &empID);
     printf("Enter the total no. of days the employee had to come this year:");
     scanf("%d",&total_days);
