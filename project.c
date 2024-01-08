@@ -31,7 +31,7 @@ int getche(void);
 int welcome_screen(void);
 int password_screen(void);
 int notification(void);
-void salary(void);
+void salary_calculator(void);
 void about(void);
 void attendance(FILE *fp);
 void add_record(FILE *fp);
@@ -95,7 +95,7 @@ void menu_screen(FILE *fp)
         gotoxy(80,30);
         printf("6-ATTENDANCE\n");
         gotoxy(80,32);
-        printf("7-SALARY\n");
+        printf("7-SALARY CALCULATOR\n");
         gotoxy(80,34);
         printf("8-NOTIFICATIONS\n");
         gotoxy(80,36);
@@ -127,7 +127,7 @@ void menu_screen(FILE *fp)
         	attendance(fp);
         	break;	
         case '7' :
-        	salary();	        	
+        	salary_calculator();	        	
         	break;
         case '8' :
         	notification();
@@ -206,12 +206,12 @@ int welcome_screen(void)
     char login;
 	system("cls");
 	gotoxy(80,18);
-	printf("______________");
-	gotoxy(88,20);
+	printf("____________________________________");
+	gotoxy(86,20);
 	printf("%s%sEMPLOYEE MANAGEMENT SYSTEM%s",ANSI_COLOR_BLUE,ANSI_COLOR_BOLD,ANSI_COLOR_RESET);
 	gotoxy(80,22);
-	printf("______________");	
-    printf("\n\n \t\t\t \t\t\t\t\t\t\t Enter L/l to login and any key to exit:");
+	printf("____________________________________");	
+    printf("\n\n\t\t\t\t\t\t\t\t\t\tEnter L/l to login and any key to exit:");
     login=getche();
     if(login=='L'||login=='l')
     {
@@ -278,7 +278,7 @@ int password_screen(void)
 	}
 
 }
-void salary(void)
+void salary_calculator(void)
 {
     system("cls");
 	char ch;
@@ -286,7 +286,10 @@ void salary(void)
     float total_salary;
     float allowances;
     int hours_worked;
-
+    printf("\n\n \t\t\t \t\t\t\t\t\t\t SALARY CALCULATOR");
+    printf("\nAccording to the companies policy following things are calculated.");
+    printf("\nOn each salary there is a 10\% tax deduction.");
+    printf("\nAccording to overtime rules employee will get 50\% extra on each hour worked.");
     printf("\nEnter employee basic salary: ");
     scanf("%f", &basic_salary);
 
@@ -310,7 +313,7 @@ void salary(void)
     printf("\nDo you want to calculate the salary of another employee: ");
     ch=getche();
     if(ch=='y'||ch=='Y')
-	salary();
+	salary_calculator();
 }
 void edit_record(FILE *fp) {
     system("cls");
