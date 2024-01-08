@@ -604,9 +604,11 @@ void attendance(FILE *fp) {
     char ch;
     int empID;
     int total_days;
-    printf("Enter employee ID to calculate attendance percentage and salary using attendance: ");
+    printf("\nEnter employee ID to calculate attendance percentage and salary using attendance: ");
     scanf("%d", &empID);
-    printf("Enter the total no. of days the employee had to come this year:");
+    printf("\nIf the total percentage of attendance is less than 75\% 10\% salary will be deducted");
+    printf("\nIf the total percentage of attendance is greater than 95\% 5\% bonus will be added in the salary");
+    printf("\nEnter the total no. of days the employee had to come this year:");
     scanf("%d",&total_days);
     struct emp e;
     rewind(fp);
