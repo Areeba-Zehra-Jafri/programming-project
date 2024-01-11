@@ -288,8 +288,8 @@ void salary_calculator(void)
     int hours_worked;
     printf("\n\n \t\t\t \t\t\t\t\t\t\t SALARY CALCULATOR");
     printf("\nAccording to the companies policy following things are calculated.");
-    printf("\nOn each salary there is a 10\% tax deduction.");
-    printf("\nAccording to overtime rules employee will get 50\% extra on each hour worked.");
+    printf("\nOn each salary there is a 10 percent tax deduction.");
+    printf("\nAccording to overtime rules employee will get 50 percent extra on each hour worked.");
     printf("\nEnter employee basic salary: ");
     scanf("%f", &basic_salary);
 
@@ -356,7 +356,7 @@ void edit_record(FILE *fp) {
                         case 5:
                         printf("Enter new salary: ");
                         fflush(stdin);
-                        scanf("%f",&e.salary);
+                        scanf("%d",&e.salary);
                         break;
                         case 6:
                         printf("Enter new designation: ");
@@ -467,7 +467,7 @@ void search_record(FILE *fp)
                 printf("Name: %s\n", e.name);
                 printf("Gender: %c\n", e.gender);
                 printf("Age: %d\n", e.age);
-                printf("Salary: %f\n", e.salary);  // Corrected format specifier
+                printf("Salary: %d\n", e.salary);  // Corrected format specifier
                 printf("Designation: %s\n", e.designation);
                 printf("Address: %s\n", e.address);
                 printf("Marital Status: %c\n", e.martial_status);
@@ -606,8 +606,8 @@ void attendance(FILE *fp) {
     int total_days;
     printf("\nEnter employee ID to calculate attendance percentage and salary using attendance: ");
     scanf("%d", &empID);
-    printf("\nIf the total percentage of attendance is less than 75\% 10\% salary will be deducted");
-    printf("\nIf the total percentage of attendance is greater than 95\% 5\% bonus will be added in the salary");
+    printf("\nIf the total percentage of attendance is less than 75 percent 10 percent  salary will be deducted");
+    printf("\nIf the total percentage of attendance is greater than 95 percent 5 percent bonus will be added in the salary");
     printf("\nEnter the total no. of days the employee had to come this year:");
     scanf("%d",&total_days);
     struct emp e;
