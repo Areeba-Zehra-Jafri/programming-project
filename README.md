@@ -1,0 +1,7 @@
+# programming-project
+our c language project for programming fundamentals course
+PROJECT NAME: EMPLOYEES MANAGEMENT SYSTEM
+GROUP MEMBERS: AREEBA ZEHRA JAFRI (CT-006)
+KASHAF ZIA (CT-003)
+AYESHA AHMED (CT-023)
+AYESHA SIDDIQUI (CT-OO9)
