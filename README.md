@@ -1,5 +1,4 @@
 # programming-project
-our c language project for programming fundamentals course
 </br>
 PROJECT NAME: EMPLOYEES MANAGEMENT SYSTEM</br>
 GROUP MEMBERS: </br>
